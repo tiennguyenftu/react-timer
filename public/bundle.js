@@ -105,18 +105,25 @@
 	var hashHistory = _require.hashHistory;
 
 	var Main = __webpack_require__(242);
+	var Timer = __webpack_require__(244);
+	var Countdown = __webpack_require__(245);
 
 	//Load foundation
-	__webpack_require__(244);
+	__webpack_require__(246);
 	$(document).foundation();
 
 	//app css
-	__webpack_require__(248);
+	__webpack_require__(250);
 
 	ReactDOM.render(React.createElement(
 	    Router,
 	    { history: hashHistory },
-	    React.createElement(Route, { path: '/', component: Main })
+	    React.createElement(
+	        Route,
+	        { path: '/', component: Main },
+	        React.createElement(Route, { path: '/countdown', component: Countdown }),
+	        React.createElement(IndexRoute, { component: Timer })
+	    )
 	), document.getElementById('app'));
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
@@ -27208,7 +27215,7 @@
 	                        null,
 	                        React.createElement(
 	                            IndexLink,
-	                            { to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+	                            { to: '/', activeClassName: 'active-link' },
 	                            'Timer'
 	                        )
 	                    ),
@@ -27217,7 +27224,7 @@
 	                        null,
 	                        React.createElement(
 	                            Link,
-	                            { to: '/countdown', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+	                            { to: '/countdown', activeClassName: 'active-link' },
 	                            'CountDown'
 	                        )
 	                    )
@@ -27251,13 +27258,53 @@
 /* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var React = __webpack_require__(8);
+
+	module.exports = React.createClass({
+	    displayName: 'exports',
+
+	    render: function render() {
+	        return React.createElement(
+	            'h3',
+	            null,
+	            'Timer JSX'
+	        );
+	    }
+	});
+
+/***/ },
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(8);
+
+	module.exports = React.createClass({
+	    displayName: 'exports',
+
+	    render: function render() {
+	        return React.createElement(
+	            'h3',
+	            null,
+	            'Countdown JSX'
+	        );
+	    }
+	});
+
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(245);
+	var content = __webpack_require__(247);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(247)(content, {});
+	var update = __webpack_require__(249)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27274,10 +27321,10 @@
 	}
 
 /***/ },
-/* 245 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(246)();
+	exports = module.exports = __webpack_require__(248)();
 	// imports
 
 
@@ -27288,7 +27335,7 @@
 
 
 /***/ },
-/* 246 */
+/* 248 */
 /***/ function(module, exports) {
 
 	/*
@@ -27344,7 +27391,7 @@
 
 
 /***/ },
-/* 247 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -27596,16 +27643,16 @@
 
 
 /***/ },
-/* 248 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(249);
+	var content = __webpack_require__(251);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(247)(content, {});
+	var update = __webpack_require__(249)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27622,15 +27669,15 @@
 	}
 
 /***/ },
-/* 249 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(246)();
+	exports = module.exports = __webpack_require__(248)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333333; }\n\n.top-bar .menu-text {\n  color: white; }\n\n.top-bar .menu > .menu-text > a {\n  display: inline;\n  padding: 0; }\n", ""]);
+	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333333; }\n\n.top-bar .menu-text {\n  color: white; }\n\n.top-bar .menu > .menu-text > a {\n  display: inline;\n  padding: 0; }\n\n.top-bar .active-link {\n  font-weight: bold; }\n", ""]);
 
 	// exports
 
